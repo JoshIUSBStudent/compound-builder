@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Common Compound Builder</title>
+<style>
+
+body         {width:60%; margin: 0 auto;}
+button       {width:100%;}
+header,footer{text-align:center;}
+table        {margin: 0 auto;}
+
+
+.chemBox     {width:40%; height:400px; background-color:#F00000; 
+		          border: 1px solid; border-radius:10px; opacity:0.85;
+		          text-align:center;}
+		  
+#anions      {float: right;}
+#cations     {float: left;}
+#formatFormula {text-align: center; vertical-align: middle; margin-top: 45px;
+                diplay:table-cell; font-size: 300%;}                 
+#makecomp    {padding:10px; margin-top:10px; margin-bottom:10px; 
+	            width: 100%;}
+#output      {float:center; width:70%; margin: 0 auto; height: 150px;
+	            background-color:#85C2FF; border: 1px solid; 
+		          border-radius:10px; opacity:0.85;}
+
+</style>
+</head>
+</body>
+
+<!-- test git -->
+
+<header>
+	<h2>Common Compound Builder</h2>
+</header>
+
+
+<div id="cations" class="chemBox">
+  <p>Cations</p>
+  
+  <table>
+  
+    <tr>
+      <td><button type="button" onclick="SetCation('Al', 3)">Aluminum</button></td>
+      <td><button type="button" onclick="SetCation('NH4', 1)">Ammonium</button></td>
+      <td><button type="button" onclick="SetCation('Ba', 2)">Barium</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetCation('Be', 2)">Beryllium</button></td>
+      <td><button type="button" onclick="SetCation('Cd', 2)">Cadmium</button></td>
+      <td><button type="button" onclick="SetCation('Ca', 2)">Calcium</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('Cr', 2)">Chromium (II)</button></td>
+      <td><button type="button" onclick="SetCation('Cr', 3)">Chromium (III)</button></td>
+      <td><button type="button" onclick="SetCation('Co', 2)">Cobalt</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetCation('Cu', 1)">Copper (I)</button></td>
+      <td><button type="button" onclick="SetCation('Cu', 2)">Copper (II)</button></td>
+      <td><button type="button" onclick="SetCation('Au', 3)">Gold</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('H', 1)">Hydrogen</button></td>
+      <td><button type="button" onclick="SetCation('H3O', 1)">Hydronium</button></td>
+      <td><button type="button" onclick="SetCation('Fe', 2)">Iron (II)</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetCation('Fe', 3)">Iron (III)</button></td>
+      <td><button type="button" onclick="SetCation('Pb', 2)">Lead (II)</button></td>
+      <td><button type="button" onclick="SetCation('Li', 1)">Lithium</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('Mg', 2)">Magnesium</button></td>
+      <td><button type="button" onclick="SetCation('Mn', 2)">Manganese(II)</button></td>
+      <td><button type="button" onclick="SetCation('Hg', 1)">Mercury (I)</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('Hg', 2)">Mercury (II)</button></td>
+      <td><button type="button" onclick="SetCation('Ni', 1)">Nickel</button></td>
+      <td><button type="button" onclick="SetCation('K', 1)">Potassium</button></td>
+    </tr>
+
+    <tr>
+      <td><button type="button" onclick="SetCation('Sc', 3)">Scandium</button></td>
+      <td><button type="button" onclick="SetCation('Ag', 1)">Silver</button></td>
+      <td><button type="button" onclick="SetCation('Na', 1)">Sodium</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('Sr', 2)">Strontium</button></td>
+      <td><button type="button" onclick="SetCation('Sn', 2)">Tin (II)</button></td>
+      <td><button type="button" onclick="SetCation('Sn', 4)">Tin (IV)</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetCation('Zn', 2)">Zinc</button></td>
+    </tr>
+    
+  </table>
+  
+</div>
+
+
+<div id="anions" class="chemBox">
+  <h3>Anions</h3>
+  
+  <table>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('C2H3O2', 1)">Acetate</button></td>
+      <td><button type="button" onclick="SetAnions('Br', 1)">Bromide</button></td>
+      <td><button type="button" onclick="SetAnions('HCO3', 1)">Bicarbonate</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('C', 4)">Carbide</button></td>
+      <td><button type="button" onclick="SetAnions('CO3', 2)">Carbonate</button></td>
+      <td><button type="button" onclick="SetAnions('ClO3', 2)">Chlorate</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('Cl', 1)">Chloride</button></td>
+      <td><button type="button" onclick="SetAnions('ClO2', 1)">Chlorite</button></td>
+      <td><button type="button" onclick="SetAnions('CrO4', 2)">Chromate</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('Cr2O7', 2)">Dichromate</button></td>
+      <td><button type="button" onclick="SetAnions('F', 1)">Fluoride</button></td>
+      <td><button type="button" onclick="SetAnions('H', 1)">Hydride</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('OH', 1)">Hydroxide</button></td>
+      <td><button type="button" onclick="SetAnions('ClO', 1)">Hypochlorite</button></td>
+      <td><button type="button" onclick="SetAnions('I', 1)">Iodide</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('NO3', 1)">Nitrate</button></td>
+      <td><button type="button" onclick="SetAnions('N', 3)">Nitride</button></td>
+      <td><button type="button" onclick="SetAnions('NO2', 1)">Nitrite</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('C2O4', 2)">Oxalate</button></td>
+      <td><button type="button" onclick="SetAnions('O', 2)">Oxide</button></td>
+      <td><button type="button" onclick="SetAnions('ClO4', 1)">Perchlorate</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('MnO4', 1)">Permanganate</button></td>
+      <td><button type="button" onclick="SetAnions('PO4', 1)">Phosphate</button></td>
+      <td><button type="button" onclick="SetAnions('P', 3)">Phosphide</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('HPO4', 2)">Monohydrogen phosphate</button></td>
+      <td><button type="button" onclick="SetAnions('H2PO4', 1)">Dihydrogen phosphate</button></td>
+      <td><button type="button" onclick="SetAnions('SeO4', 2)">Selenate</button></td>
+    </tr>
+  
+    <tr>
+      <td><button type="button" onclick="SetAnions('SO4', 2)">Sulfate</button></td>
+      <td><button type="button" onclick="SetAnions('HSO4', 1)">Bisulfate</button></td>
+      <td><button type="button" onclick="SetAnions('S', 2)">Sulfide</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetAnions('HS', 1)">Bisulfide</button></td>
+      <td><button type="button" onclick="SetAnions('SO3', 2)">Sulfite</button></td>
+      <td><button type="button" onclick="SetAnions('HSO3', 1)">Bisulfite</button></td>
+    </tr>
+    
+    <tr>
+      <td><button type="button" onclick="SetAnions('SCN', 1)">Thiocyanate</button></td>
+    </tr>
+    
+  </table>
+  
+</div>
+
+
+<div style="width:100%;"> <!-- For the make button -->
+	<button type="button" id="makecomp" onclick="MakeCompound()">Make Compound</button>
+</div>
+
+
+<div id="output"> <!-- For the output box -->
+
+</div>
+
+
+<footer>
+	<br><h5>by Josh Barrett</h5>
+</footer>
+
+
+<script type="text/javascript">
+  
+  var anion, cation;
+  
+  function MakeCompound ()
+  {
+    if (!(anion === undefined || cation === undefined))
+    {
+      initialAnionCharge  = anion[1];  //this is done to separate data so that if only
+      initialCationCharge = cation[1]; //one cation or anion is changed the data in the
+                                       //global arrays are not changed
+      anionMultiplier  = 1;
+      cationMultiplier = 1;
+      
+      if (initialAnionCharge === 1)
+      {
+        if(initialCationCharge === 1)
+        {
+          //multipliers are set correctly already
+        }
+        else
+        {
+          anionMultiplier = initialCationCharge;
+        }
+      }
+      else
+      {
+        if(initialCationCharge === 1)
+        {
+          cationMultiplier = initialAnionCharge;
+        }
+        else
+        {
+          while ((initialAnionCharge * anionMultiplier) != (initialCationCharge * cationMultiplier))
+          {
+            if (initialAnionCharge < initialCationCharge)
+              anionMultiplier += 1;
+            else
+              cationMultiplier += 1;
+            
+          }
+        }
+      }
+      
+      outputBoxString = "<p id='formatFormula'>";  
+      
+      if (cationMultiplier == 1)
+        outputBoxString += FormatIon("cation", cationMultiplier);
+      else
+        outputBoxString += FormatIon("cation", cationMultiplier) + "<sub>" + cationMultiplier + "</sub>";
+      
+      
+      if (anionMultiplier == 1)
+        outputBoxString += FormatIon("anion", anionMultiplier);
+      else
+        outputBoxString += FormatIon("anion", anionMultiplier) + "<sub>" + anionMultiplier + "</sub>";
+      
+      document.getElementById("output").innerHTML = outputBoxString + "</p>";
+    }
+    else
+    {
+      document.getElementById("output").innerHTML = "Select both a cation and an anion.";
+    }
+  }
+  
+  function FormatIon(ionType, multiplier)
+  {
+    formatString = "";
+    i = 0;
+    paraFlag = paraNeeded(ionType) && multiplier > 1; //true if () are needed around the ion
+    
+    if (paraFlag)
+      formatString = "(";
+    
+    if (ionType == "cation")
+    {
+      while (i < cation[0].length)
+      {
+        if (!/\d/.test(cation[0].charAt(i))) //if (not(not a number)
+          formatString += cation[0].charAt(i);
+        else
+          formatString += "<sub>" + cation[0].charAt(i) + "</sub>";
+        
+        i++;
+      }
+    }
+    else
+    {
+      while (i < anion[0].length)
+      {
+        if (!/\d/.test(anion[0].charAt(i))) //if (not(not a number))
+          formatString += anion[0].charAt(i);
+        else
+          formatString += "<sub>" + anion[0].charAt(i) + "</sub>";
+        
+        i++;
+      }
+    }
+    
+    if (paraFlag)
+      formatString += ")";
+        
+    return formatString;
+  }
+  
+  function paraNeeded(iType)
+  {
+    var ion; 
+    var paraFlag = false; 
+    
+    if (iType == 'anion')
+      ion = anion;
+    else if (iType == 'cation')
+      ion = cation;
+    
+    if(ion[0].length != 1 )
+    {
+      if (ion[0].length == 2)
+      {
+        if (!isUpperCase(ion[0].charAt(2))) //second char is uppercase so there are two elements there
+          paraFlag = true;
+      }
+      else //case: the ion's formula is greater than 2 (atoms abbreviations are two char or less)
+      {
+        paraFlag = true;
+      }
+    }
+    
+    return paraFlag;
+  }
+  
+  function SetCation(cationPassed, charge)
+  {
+    cation = [cationPassed, charge];
+  }
+  
+  function SetAnions(anionPassed, charge)
+  {
+    anion = [anionPassed, charge];
+  }
+  
+  function isUpperCase(str)
+  {
+    return str === str.toUpperCase();
+  }
+  
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
