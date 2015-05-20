@@ -1,0 +1,20 @@
+
+body         {width:60%; margin: 0 auto;}
+button       {width:100%;}
+header,footer{text-align:center;}
+table        {margin: 0 auto;}
+
+
+.chemBox     {width:40%; height:400px; background-color:#F00000; 
+		          border: 1px solid; border-radius:10px; opacity:0.85;
+		          text-align:center;}
+		  
+#anions      {float: right;}
+#cations     {float: left;}
+#formatFormula {text-align: center; vertical-align: middle; margin-top: 45px;
+                diplay:table-cell; font-size: 300%;}                 
+#makecomp    {padding:10px; margin-top:10px; margin-bottom:10px; 
+	            width: 100%;}
+#output      {float:center; width:70%; margin: 0 auto; height: 150px;
+	            background-color:#85C2FF; border: 1px solid; 
+		          border-radius:10px; opacity:0.85;}
